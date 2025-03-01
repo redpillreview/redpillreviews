@@ -1,92 +1,34 @@
-/* General Styles */
-body {
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #121212;
-    color: #ffffff;
-    text-align: center;
-}
+document.addEventListener("DOMContentLoaded", function () {
+    const blogContainer = document.getElementById("blog-posts");
+    const blogId = "286026449388250697";
+    const apiKey = "AIzaSyB8Ydjlg14S2-6xzlU15Gd0nQfwx_c6XMU";
+    const apiUrl = `https://www.googleapis.com/blogger/v3/blogs/${blogId}/posts?key=${apiKey}`;
 
-/* Header */
-header {
-    background: linear-gradient(135deg, #d32f2f, #880e4f);
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
+    fetch(apiUrl)
+        .then(response => response.json())
+        .then(data => {
+            if (data.items) {
+                blogContainer.innerHTML = ""; // Clear the loading text
 
-#logo {
-    font-size: 28px;
-    cursor: pointer;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-}
+                data.items.forEach(post => {
+                    const postElement = document.createElement("div");
+                    postElement.classList.add("blog-post");
+                    
+                    postElement.innerHTML = `
+                        <h3><a href="${post.url}" target="_blank">${post.title}</a></h3>
+                        <p>${post.content.substring(0, 150)}...</p> <!-- Show first 150 chars -->
+                        <a href="${post.url}" target="_blank">Read More</a>
+                        <hr>
+                    `;
 
-nav ul {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-}
-
-nav ul li {
-    display: inline;
-}
-
-nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-size: 18px;
-    transition: color 0.3s ease-in-out;
-}
-
-nav ul li a:hover {
-    color: #ff5252;
-}
-
-/* Sections */
-section {
-    padding: 40px 20px;
-    margin: 20px;
-    border-radius: 10px;
-    background: rgba(255, 255, 255, 0.1);
-    box-shadow: 0 4px 10px rgba(255, 0, 0, 0.3);
-}
-
-h2 {
-    color: #ff5252;
-}
-
-/* Blog Posts */
-#blog-posts {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    margin-top: 20px;
-}
-
-.blog-post {
-    padding: 15px;
-    border-radius: 10px;
-    background: rgba(255, 255, 255, 0.2);
-    box-shadow: 0 2px 8px rgba(255, 0, 0, 0.3);
-    transition: transform 0.3s ease-in-out;
-}
-
-.blog-post:hover {
-    transform: scale(1.05);
-}
-
-/* Footer */
-footer {
-    margin-top: 20px;
-    padding: 20px;
-    background: linear-gradient(135deg, #880e4f, #d32f2f);
-    text-align: center;
-}
-
-.oracle {
-    font-weight: bold;
-    color: #ff5252;
-    text-transform: uppercase;
-}
+                    blogContainer.appendChild(postElement);
+                });
+            } else {
+                blogContainer.innerHTML = "<p>No blog posts found.</p>";
+            }
+        })
+        .catch(error => {
+            console.error("Error fetching blog posts:", error);
+            blogContainer.innerHTML = "<p>Error loading blog posts.</p>";
+        });
+});
