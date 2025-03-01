@@ -1,6 +1,6 @@
-/* Matrix Theme */
+/* MATRIX THEME */
 body {
-    background-color: pink;
+    background-color: black;
     color: #00ff00;
     font-family: 'Courier New', monospace;
     text-align: center;
@@ -9,23 +9,23 @@ body {
 
 /* Header Styling */
 header {
-    background-color: green(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.9);
     padding: 15px;
-    border-bottom: 2px solid #00ff00;
-    box-shadow: 0px 0px 15px #00ff00;
+    border-bottom: 3px solid #00ff00;
+    box-shadow: 0px 0px 20px #00ff00;
 }
 
 /* Logo */
 h1#logo {
     color: #00ff00;
     cursor: pointer;
-    transition: color 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
 }
 
 /* Logo Hover Effect */
 h1#logo:hover {
     color: red;
-    text-shadow: 0px 0px 15px red;
+    text-shadow: 0px 0px 20px red;
 }
 
 /* Navigation Bar */
@@ -43,13 +43,13 @@ nav ul li a {
     color: #00ff00;
     text-decoration: none;
     font-size: 18px;
-    transition: color 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
 }
 
 /* Hover effect for navigation links */
 nav ul li a:hover {
     color: red;
-    text-shadow: 0px 0px 10px red;
+    text-shadow: 0px 0px 15px red;
 }
 
 /* Sections */
@@ -57,9 +57,10 @@ section {
     margin: 30px auto;
     padding: 20px;
     border-radius: 10px;
-    background-color: rgba(0, 0, 0, 0.6);
-    box-shadow: 0px 0px 10px #00ff00;
+    background-color: rgba(0, 0, 0, 0.8);
+    box-shadow: 0px 0px 15px #00ff00;
     max-width: 800px;
+    transition: all 0.3s ease-in-out;
 }
 
 /* Blog Button */
@@ -67,7 +68,7 @@ button {
     background-color: black;
     color: #00ff00;
     font-size: 18px;
-    padding: 10px 20px;
+    padding: 12px 24px;
     border: 2px solid #00ff00;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
@@ -77,7 +78,8 @@ button {
 button:hover {
     background-color: red;
     border-color: red;
-    box-shadow: 0px 0px 15px red;
+    color: black;
+    box-shadow: 0px 0px 20px red;
 }
 
 /* Blog Posts */
@@ -90,35 +92,36 @@ button:hover {
 }
 
 .blog-post {
-    padding: 10px;
+    padding: 15px;
     margin: 10px 0;
-    border-left: 3px solid #00ff00;
-    box-shadow: 0px 0px 10px #00ff00;
+    border-left: 4px solid #00ff00;
+    box-shadow: 0px 0px 15px #00ff00;
     transition: all 0.3s ease-in-out;
 }
 
 /* Hover effect for blog posts */
 .blog-post:hover {
-    border-left: 3px solid red;
-    box-shadow: 0px 0px 15px red;
+    border-left: 4px solid red;
+    box-shadow: 0px 0px 20px red;
 }
 
 /* Footer */
 footer {
     margin-top: 20px;
     padding: 10px;
-    border-top: 2px solid #00ff00;
-    text-shadow: 0px 0px 10px #00ff00;
+    border-top: 3px solid #00ff00;
+    text-shadow: 0px 0px 15px #00ff00;
 }
 
 /* Oracle (Username) */
 .oracle {
     color: #00ff00;
     font-weight: bold;
+    transition: all 0.3s ease-in-out;
 }
 
 /* Oracle Hover */
 .oracle:hover {
     color: red;
-    text-shadow: 0px 0px 10px red;
+    text-shadow: 0px 0px 15px red;
 }
