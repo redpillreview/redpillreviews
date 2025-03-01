@@ -1,84 +1,95 @@
+/* General Styling */
 body {
     font-family: 'Orbitron', sans-serif;
-    background-color: #121212;
-    color: #ddd;
+    background-color: #000;  /* Dark theme */
+    color: #bbb;  /* Slightly gray for readability */
     margin: 0;
     padding: 0;
 }
 
+/* Navbar */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #1e1e1e;
-    padding: 10px 20px;
-}
-
-.nav-links {
-    list-style: none;
-    display: flex;
+    padding: 15px 20px;
+    background: rgba(10, 10, 10, 0.9); /* Slightly transparent */
 }
 
 .nav-links li {
+    list-style: none;
+    display: inline;
     margin: 0 15px;
 }
 
 .nav-links a {
     text-decoration: none;
-    color: #fff;
+    color: #ddd;
     font-weight: bold;
-    transition: 0.3s;
+    transition: color 0.3s ease-in-out;
 }
 
 .nav-links a:hover {
-    color: #ff5722;
+    color: #f33;  /* Red hover effect */
 }
 
+/* Hero Section */
 .hero {
     text-align: center;
-    padding: 50px 20px;
-    background-color: #222;
-    color: white;
+    padding: 60px 20px;
 }
 
-.btn {
-    display: inline-block;
-    padding: 10px 20px;
-    color: white;
-    background-color: #ff5722;
-    text-decoration: none;
-    border-radius: 5px;
-    margin-top: 10px;
+.hero h1 {
+    font-size: 2.8rem;
+    color: #f33;  /* Red highlight */
 }
 
+.hero span {
+    color: #fff;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 10px auto;
+}
+
+/* Articles Section */
 .articles-container {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 40px 10px;
 }
 
 .article {
-    width: 80%;
-    max-width: 600px;
+    background: #111;
     padding: 20px;
-    margin: 20px 0;
-    background: #1e1e1e;
     border-radius: 10px;
-    text-align: center;
+    width: 300px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.article:hover {
+    transform: translateY(-5px);
 }
 
 .article h3 {
-    color: #ff5722;
+    color: #fff; /* White Font for Article Titles */
+    font-size: 1.4rem;
 }
 
 .article p {
-    color: #ccc;
+    color: #ccc;  /* Light gray for readability */
+    font-size: 1rem;
 }
 
 .read-more {
+    display: inline-block;
+    margin-top: 10px;
+    color: #f33;
     text-decoration: none;
-    color: #ff5722;
     font-weight: bold;
 }
 
@@ -86,14 +97,16 @@ body {
     text-decoration: underline;
 }
 
-/* ARTICLE PAGE SPECIFIC STYLING */
-.article-content {
-    padding: 40px 20px;
-    max-width: 800px;
-    margin: auto;
-    color: white; /* White font for articles */
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #222;
+    color: #aaa;
 }
 
-.article-content h1 {
-    color: #ff5722;
+/* Fixing Logo Issue */
+.logo img {
+    width: 180px; /* Adjusted size */
+    height: auto;
 }
