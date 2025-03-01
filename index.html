@@ -46,29 +46,69 @@
 
     <footer>
         <p>&copy; 2025 Red Pill Review | Designed with 💡 by The Oracle</
-            <!DOCTYPE html>
+
+        <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Red Pill Review</title>
+    <meta name="description" content="Home Page - Your Website">
+    <title>Home - Your Website</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Sticky navigation bar */
+        .sticky-nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            z-index: 1000; /* Ensures it stays on top of other content */
+            font-size: 18px;
+        }
+
+        .sticky-nav a {
+            color: white;
+            text-decoration: none;
+            padding: 14px 20px;
+            display: inline-block;
+        }
+
+        .sticky-nav a:hover {
+            background-color: #575757;
+        }
+
+        /* Add margin below the sticky nav to prevent content from being hidden under it */
+        body {
+            margin-top: 50px;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <h1>Welcome to Red Pill Review</h1>
-        <nav>
-            <ul>
-                <li><a href="articles.html">Articles</a></li>
-                <!-- Other navigation links -->
-            </ul>
-        </nav>
-    </header>
+    <!-- Sticky Navigation Bar -->
+    <div class="sticky-nav">
+        <a href="articles/investment_banking.html">Investment Banking: A Detailed Overview</a>
+    </div>
+
+    <!-- Main Content -->
     <main>
         <section>
-            <h2>About Us</h2>
-            <p>Welcome to Red Pill Review, where the veil of deception is lifted. Here, The Oracle commits to delivering raw, unfiltered insights on business, geopolitics, markets, and beyond. No narratives, no sugarcoating—just the truth, backed by numbers, analysis, and real-world experience.</p>
+            <h1>Welcome to Our Website!</h1>
+            <p>Here you can find articles and information about various topics, including finance, politics, and much more.</p>
+        </section>
+        
+        <!-- Other sections of your homepage -->
+        <section>
+            <h2>Other Articles</h2>
+            <p>Explore more articles below...</p>
         </section>
     </main>
+
+    <footer>
+        <p>&copy; 2025 Your Website. All rights reserved.</p>
+    </footer>
 </body>
 </html>
+
