@@ -1,0 +1,48 @@
+/* Matrix-Themed Dark Green Background & Font */
+body {
+    background-color: black;
+    color: #00ff00; /* Neon Green */
+    font-family: 'VT323', monospace; /* Matrix-style font */
+    margin: 0;
+    display: flex;
+}
+
+/* Sidebar with Logo & About */
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 300px;
+    height: 100vh;
+    background-color: #000d02; /* Dark Greenish-Black */
+    padding: 20px;
+    overflow-y: auto;
+    box-shadow: 2px 0 10px rgba(0, 255, 0, 0.5);
+    text-align: center;
+}
+
+/* Logo Fix */
+.logo img {
+    width: 100%;
+    max-width: 200px;
+    display: block;
+    margin: 0 auto 20px;
+    filter: brightness(1.2); /* Brighten the logo */
+}
+
+/* About Section */
+.about {
+    text-align: left;
+    font-size: 18px;
+}
+
+/* Title Styling */
+h1, h2 {
+    color: #00ff00;
+}
+
+/* Main Content Area */
+.content {
+    margin-left: 320px;
+    padding: 40px;
+}
