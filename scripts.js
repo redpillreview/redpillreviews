@@ -1,30 +1,25 @@
-const blogFeedURL = "https://redpillreviews.blogspot.com/feeds/posts/default?alt=json";
+document.addEventListener("DOMContentLoaded", function() {
+    const blogFeedUrl = "https://redpillreviews.blogspot.com/feeds/posts/default?alt=json";
+    const articlesContainer = document.getElementById("blog-posts");
 
-async function fetchBlogPosts() {
-    try {
-        const response = await fetch(blogFeedURL);
-        const data = await response.json();
-        const posts = data.feed.entry;
+    fetch(blogFeedUrl)
+        .then(response => response.json())
+        .then(data => {
+            const posts = data.feed.entry.slice(0, 5); // Get latest 5 posts
+            posts.forEach(post => {
+                const title = post.title.$t;
+                const link = post.link.find(l => l.rel === "alternate").href;
+                const contentSnippet = post.content.$t.replace(/<[^>]+>/g, '').substring(0, 150) + "...";
 
-        let articlesHTML = "";
-        posts.forEach(post => {
-            const title = post.title.$t;
-            const link = post.link.find(l => l.rel === "alternate").href;
-            const contentSnippet = post.summary?.$t || post.content.$t.substring(0, 150) + "...";
-
-            articlesHTML += `
-                <div class="article">
+                const articleDiv = document.createElement("div");
+                articleDiv.classList.add("article");
+                articleDiv.innerHTML = `
                     <h3>${title}</h3>
                     <p>${contentSnippet}</p>
                     <a href="${link}" class="read-more" target="_blank">Read More</a>
-                </div>
-            `;
-        });
-
-        document.querySelector(".articles-container").innerHTML = articlesHTML;
-    } catch (error) {
-        console.error("Error fetching blog posts:", error);
-    }
-}
-
-fetchBlogPosts();
+                `;
+                articlesContainer.appendChild(articleDiv);
+            });
+        })
+        .catch(error => console.error("Error fetching blog posts:", error));
+});
