@@ -1,25 +1,37 @@
-document.addEventListener("DOMContentLoaded", function() {
-    const blogFeedUrl = "https://redpillreviews.blogspot.com/feeds/posts/default?alt=json";
-    const articlesContainer = document.getElementById("blog-posts");
+document.addEventListener("DOMContentLoaded", function () {
+    const blogId = "286026449388250697"; // Your Blog ID
+    const apiKey = "AIzaSyB8Ydjlg14S2-6xzlU15Gd0nQfwx_c6XMU"; // Your API Key (Update Later)
+    const postContainer = document.getElementById("blog-posts");
 
-    fetch(blogFeedUrl)
-        .then(response => response.json())
-        .then(data => {
-            const posts = data.feed.entry.slice(0, 5); // Get latest 5 posts
-            posts.forEach(post => {
-                const title = post.title.$t;
-                const link = post.link.find(l => l.rel === "alternate").href;
-                const contentSnippet = post.content.$t.replace(/<[^>]+>/g, '').substring(0, 150) + "...";
+    async function fetchPosts() {
+        try {
+            const response = await fetch(
+                `https://www.googleapis.com/blogger/v3/blogs/${blogId}/posts?key=${apiKey}`
+            );
+            const data = await response.json();
 
-                const articleDiv = document.createElement("div");
-                articleDiv.classList.add("article");
-                articleDiv.innerHTML = `
-                    <h3>${title}</h3>
-                    <p>${contentSnippet}</p>
-                    <a href="${link}" class="read-more" target="_blank">Read More</a>
-                `;
-                articlesContainer.appendChild(articleDiv);
-            });
-        })
-        .catch(error => console.error("Error fetching blog posts:", error));
+            if (data.items) {
+                postContainer.innerHTML = "";
+                data.items.forEach((post) => {
+                    const postElement = document.createElement("div");
+                    postElement.classList.add("post");
+
+                    postElement.innerHTML = `
+                        <h2><a href="${post.url}" target="_blank">${post.title}</a></h2>
+                        <p>${post.content.substring(0, 200)}...</p>
+                        <a href="${post.url}" target="_blank">Read More</a>
+                    `;
+
+                    postContainer.appendChild(postElement);
+                });
+            } else {
+                postContainer.innerHTML = "<p>No posts found.</p>";
+            }
+        } catch (error) {
+            console.error("Error fetching blog posts:", error);
+            postContainer.innerHTML = "<p>Failed to load posts.</p>";
+        }
+    }
+
+    fetchPosts();
 });
