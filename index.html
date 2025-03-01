@@ -9,7 +9,7 @@
 </head>
 <body>
     <header>
-        <h1>🔴 Red Pill Review - The Oracle Speaks 🔴</h1>
+        <h1 id="logo">🔴 Red Pill Review - The Oracle Speaks 🔴</h1>
         <nav>
             <ul>
                 <li><a href="#about">About</a></li>
@@ -44,5 +44,11 @@
     <footer>
         <p>Created by <span class="oracle">The Oracle</span> | All Rights Reserved.</p>
     </footer>
+
+    <script>
+        document.getElementById("logo").addEventListener("click", function() {
+            alert("Subscribe to our YouTube channel: Red Pill Review!");
+        });
+    </script>
 </body>
 </html>
