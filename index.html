@@ -1,48 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Red Pill Review</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-</head>
-<body>
-    <header>
-        <nav class="navbar">
-            <div class="logo">
-                <img src="logo.png" alt="Red Pill Review">
-            </div>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="articles.html">Articles</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="https://www.youtube.com/channel/UCacYIK_XgPLGe-G_UOJv66Q">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+document.addEventListener("DOMContentLoaded", function() {
+    const blogFeedUrl = "https://redpillreviews.blogspot.com/feeds/posts/default?alt=json";
+    const articlesContainer = document.getElementById("blog-posts");
 
-    <section class="hero">
-        <h1>Welcome to <span>Red Pill Review</span></h1>
-        <p>Dive into the world of numbers, analysis, and untold stories.</p>
-        <a href="about.html" class="btn">Learn More</a>
-    </section>
+    fetch(blogFeedUrl)
+        .then(response => response.json())
+        .then(data => {
+            const posts = data.feed.entry.slice(0, 5); // Get latest 5 posts
+            posts.forEach(post => {
+                const title = post.title.$t;
+                const link = post.link.find(l => l.rel === "alternate").href;
+                const contentSnippet = post.content.$t.replace(/<[^>]+>/g, '').substring(0, 150) + "...";
 
-    <section class="content">
-        <h2>Latest Articles</h2>
-        <div class="articles-container">
-            <div class="article">
-                <h3>The Fall of Credit Suisse</h3>
-                <p>A deep dive into the shocking collapse of a banking giant.</p>
-                <a href="articles/credit-suisse.html" class="read-more">Read More</a>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <p>&copy; 2025 Red Pill Review</p>
-    <script src="scripts.js"></script>
-    </footer>
-</body>
-</html>
+                const articleDiv = document.createElement("div");
+                articleDiv.classList.add("article");
+                articleDiv.innerHTML = `
+                    <h3>${title}</h3>
+                    <p>${contentSnippet}</p>
+                    <a href="${link}" class="read-more" target="_blank">Read More</a>
+                `;
+                articlesContainer.appendChild(articleDiv);
+            });
+        })
+        .catch(error => console.error("Error fetching blog posts:", error));
+});
