@@ -1,112 +1,90 @@
-/* General Styling */
+/* Global Styles */
 body {
-    font-family: 'Orbitron', sans-serif;
-    background-color: #000;  /* Dark theme */
-    color: #bbb;  /* Slightly gray for readability */
+    font-family: Arial, sans-serif;
     margin: 0;
+    padding: 0;
+    background-color: #121212;
+    color: #ffffff;
+}
+
+/* Header */
+header {
+    background-color: #1a1a1a;
+    padding: 20px;
+    text-align: center;
+    border-bottom: 2px solid red;
+}
+
+nav ul {
+    list-style: none;
     padding: 0;
 }
 
-/* Navbar */
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 20px;
-    background: rgba(10, 10, 10, 0.9); /* Slightly transparent */
-}
-
-.nav-links li {
-    list-style: none;
+nav ul li {
     display: inline;
     margin: 0 15px;
 }
 
-.nav-links a {
+nav ul li a {
+    color: red;
     text-decoration: none;
-    color: #ddd;
     font-weight: bold;
-    transition: color 0.3s ease-in-out;
-}
-
-.nav-links a:hover {
-    color: #f33;  /* Red hover effect */
 }
 
 /* Hero Section */
-.hero {
+#hero {
     text-align: center;
     padding: 60px 20px;
+    background: linear-gradient(to right, #ff0000, #990000);
+    color: white;
 }
 
-.hero h1 {
-    font-size: 2.8rem;
-    color: #f33;  /* Red highlight */
+/* Blog Section */
+#blog {
+    padding: 40px 20px;
+    text-align: center;
 }
 
-.hero span {
-    color: #fff;
-}
-
-.hero p {
-    font-size: 1.2rem;
-    max-width: 600px;
-    margin: 10px auto;
-}
-
-/* Articles Section */
-.articles-container {
+#blog-posts {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 20px;
-    padding: 40px 10px;
 }
 
-.article {
-    background: #111;
-    padding: 20px;
-    border-radius: 10px;
+.blog-post {
+    background: #1e1e1e;
+    padding: 15px;
+    margin: 15px;
     width: 300px;
-    transition: transform 0.3s ease-in-out;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(255, 0, 0, 0.5);
 }
 
-.article:hover {
-    transform: translateY(-5px);
+/* About Section */
+#about {
+    padding: 50px;
+    background-color: #1a1a1a;
+    text-align: center;
+    border-top: 2px solid red;
+    border-bottom: 2px solid red;
 }
 
-.article h3 {
-    color: #fff; /* White Font for Article Titles */
-    font-size: 1.4rem;
+/* Contact Section */
+#contact {
+    text-align: center;
+    padding: 30px;
+    background-color: #1e1e1e;
 }
 
-.article p {
-    color: #ccc;  /* Light gray for readability */
-    font-size: 1rem;
-}
-
-.read-more {
-    display: inline-block;
-    margin-top: 10px;
-    color: #f33;
-    text-decoration: none;
+#contact a {
+    color: red;
     font-weight: bold;
-}
-
-.read-more:hover {
-    text-decoration: underline;
+    text-decoration: none;
 }
 
 /* Footer */
 footer {
     text-align: center;
     padding: 20px;
-    background: #222;
-    color: #aaa;
-}
-
-/* Fixing Logo Issue */
-.logo img {
-    width: 180px; /* Adjusted size */
-    height: auto;
-}
+    background-color: #0a0a0a;
+    border-to
