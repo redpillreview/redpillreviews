@@ -1,6 +1,6 @@
 body {
-    background: linear-gradient(to right, #1c1c1c, #2a2a2a);
-    color: #ffffff;
+    background: #f8f9fa;
+    color: #333;
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
@@ -11,8 +11,8 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 20px 50px;
-    background: rgba(20, 20, 20, 0.9);
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.7);
+    background: #ffffff;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
     position: fixed;
     width: 100%;
     top: 0;
@@ -20,30 +20,29 @@ header {
 }
 
 .logo-container img {
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
-    transition: 0.3s;
     cursor: pointer;
-    border: 2px solid #ff3c3c;
+    transition: 0.3s;
 }
 
 .logo-container img:hover {
     transform: scale(1.1);
-    filter: drop-shadow(0 0 12px #ff3c3c);
+    filter: drop-shadow(0 0 8px #ff0000);
 }
 
 nav ul {
     list-style: none;
     display: flex;
-    gap: 30px;
+    gap: 25px;
     padding: 0;
 }
 
 nav ul li a {
     text-decoration: none;
-    color: #f0f0f0;
-    font-size: 18px;
+    color: #333;
+    font-size: 16px;
     font-weight: bold;
     transition: 0.3s;
     padding: 10px 15px;
@@ -51,77 +50,73 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    background: #ff3c3c;
-    color: #fff;
-    box-shadow: 0px 0px 10px #ff3c3c;
+    color: #ff0000;
+    text-decoration: underline;
 }
 
 main {
-    padding-top: 140px;
+    padding-top: 120px;
     text-align: center;
 }
 
 button {
-    background: #ff3c3c;
+    background: #ff0000;
     color: white;
-    padding: 15px 35px;
+    padding: 12px 30px;
     border: none;
     cursor: pointer;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: bold;
     transition: 0.3s;
-    border-radius: 8px;
+    border-radius: 5px;
 }
 
 button:hover {
-    background: #e60000;
-    box-shadow: 0px 0px 15px rgba(255, 60, 60, 0.7);
+    background: #cc0000;
+    box-shadow: 0px 0px 10px rgba(255, 0, 0, 0.5);
 }
 
 .blog-section {
     display: none;
     padding: 40px;
-    background: rgba(255, 60, 60, 0.1);
-    border-radius: 10px;
-    box-shadow: 0px 0px 20px rgba(255, 60, 60, 0.3);
-    max-width: 85%;
+    max-width: 80%;
     margin: 50px auto;
 }
 
 .blog-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 25px;
+    gap: 30px;
     padding: 20px;
     justify-content: center;
 }
 
 .blog-card {
-    background: #2e2e2e;
-    padding: 25px;
-    border-radius: 12px;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
     text-align: left;
-    box-shadow: 0px 4px 15px rgba(255, 60, 60, 0.2);
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s, box-shadow 0.3s;
-    border-left: 5px solid #ff3c3c;
+    border-left: 4px solid #ff0000;
 }
 
 .blog-card:hover {
-    transform: scale(1.06);
-    box-shadow: 0px 6px 20px rgba(255, 60, 60, 0.5);
+    transform: scale(1.03);
+    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.2);
 }
 
 footer {
     text-align: center;
-    padding: 25px;
-    background: #181818;
+    padding: 20px;
+    background: #222;
     color: white;
     font-weight: bold;
-    border-top: 3px solid #ff3c3c;
+    border-top: 3px solid #ff0000;
 }
 
 .oracle {
     font-weight: bold;
-    color: #ff3c3c;
+    color: #ff0000;
     text-transform: uppercase;
 }
